@@ -7,6 +7,14 @@ class Personaje:
     #Métodos
     def correr(self,status):
         if(status):
-            print("El personaje "+ self.nombre + "está corriendo")
+            print("El personaje "+ self.nombre + "está corriendo.")
         else:
-            print("El personaje "+self.nombre+ "se detuvo")
+            print("El personaje "+self.nombre+ "se detuvo.")
+            
+    def lanzar_granadas(self):
+        print("El personaje "+ self.nombre + "lanzó la granada.")
+        
+    def recargar_arma(self,municiones):
+        cargardor=10
+        cargador=cargador+municiones
+        print("El arma recargada tiene "+cargador+ "balas.")
