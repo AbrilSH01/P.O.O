@@ -15,25 +15,26 @@ recargaV=int(input("Ingrese las balas del villano: "))
 #1.Crear los objetos
 heroe=Personaje(especieH,nombreH,alturaH)
 villano=Personaje(especieV,nombreV,alturaV)
+heroe.setNombre("Padrine")
 
 #2.Usamos los atributos de heroe y villano
 print("\n")
 print("DATOS HEROE")
-print("El personaje se llama: "+heroe.nombre)
-print("El personaje pertenece a la especie: "+heroe.especie)
-print("El personaje mide: "+str(heroe.altura))
+print("El personaje se llama: "+heroe.getNombre())
+print("El personaje pertenece a la especie: "+heroe.getEspecie())
+print("El personaje mide: "+str(heroe.getAltura()))
 heroe.correr(True)
 heroe.lanzar_granadas()
 heroe.recargar_arma(recargaH)
 print("\n")
 print("DATOS VILLANO")
-print("El personaje se llama: "+villano.nombre)
-print("El personaje pertenece a la especie: "+villano.especie)
-print("El personaje mide: "+str(villano.altura))
+print("El personaje se llama: "+villano.getNombre())
+print("El personaje pertenece a la especie: "+villano.getEspecie())
+print("El personaje mide: "+str(villano.getAltura()))
 villano.correr(True)
 villano.lanzar_granadas()
 villano.recargar_arma(recargaV)
-
+#villano.__pensar()
 
 
 
