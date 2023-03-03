@@ -35,4 +35,13 @@ contraseña=Entry(seccion1)
 contraseña.config(show="*")
 contraseña.place(x=260,y=95)
 
+#Boton de inicio
+seccionBoton=Frame(ventana,bg="white")
+seccionBoton.pack(expand=True,fill="both")
+
+boton=Button(seccionBoton,text="Entrar",fg="black",bg="white",command=validacion)
+boton.pack()
+
+ventana.mainloop()
+
 
