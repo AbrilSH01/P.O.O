@@ -1,17 +1,10 @@
 from tkinter import *
+from validacion import*
 from tkinter import messagebox
 
 correo="121037785@upq.edu.mx"
-password="password1234"
+contraseña="contraseña1234"
 
-#1. Funcion para el mensaje de advertencia
-
-def validacion():
-    if correo == email.get() and password == contraseña.get():
-        messagebox.showinfo("Bienvenido cardenal!")
-    else:
-        messagebox.showinfo("Error, los datos son incorrectos!")
-        
 #Datos de la ventana
 ventana=Tk()
 ventana.title("INICIO DE SESION")
@@ -20,28 +13,30 @@ ventana.geometry("600x400")
 seccion1=Frame(ventana,bg="#2596be")
 seccion1.pack(expand=True,fill='both')
 
-lb1=Label(seccion1,text="INICIO DE SESIÓN")
-lb1.pack()
+lb1=Label(seccion1,text="LOGIN")
+lb1.place(x=250, y=40)
 
-correo=Label(seccion1,text="Correo electrónico: ")
-correo.place(x=205, y=60)
-password=Label(seccion1,text="Contraseña: ")
-password.place(x=180, y=90)
+
+c=Label(seccion1,text="Correo electrónico: ")
+c.place(x=110, y=110)
+p=Label(seccion1,text="Contraseña: ")
+p.place(x=150, y=180)
 
 email=Entry(seccion1)
-email.place(x=250, y=80)
+email.place(x=280, y=110)
 
-contraseña=Entry(seccion1)
-contraseña.config(show="*")
-contraseña.place(x=260,y=95)
+password=Entry(seccion1)
+password.config(show="*")
+password.place(x=280,y=180)
 
-#Boton de inicio
-seccionBoton=Frame(ventana,bg="white")
-seccionBoton.pack(expand=True,fill="both")
+#Boton de inicio de sesión
+validacion=Login(email,password,correo,contraseña)
+boton=Button(seccion1,text="Entrar",fg="black",bg="white",command= validacion.validacion1)
+boton.place(x=265,y=250)
 
-boton=Button(seccionBoton,text="Entrar",fg="black",bg="white",command=validacion)
-boton.pack()
 
+print(password)
+print(email)
 ventana.mainloop()
 
 
