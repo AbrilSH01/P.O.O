@@ -32,7 +32,7 @@ class generador:
             p = ""
             p=p.join([choice(self.caractEsp) for i in range (lg)])
             print (p)
-            messagebox.showinfo("Contraseña","Su contraseña es: "+p)
+            messagebox.showinfo("Contraseña","Su contraseña es: "+p)            
         elif cr=="no" and lg==lg:
             p = ""
             p=p.join([choice(self.caracteres) for i in range (lg)])

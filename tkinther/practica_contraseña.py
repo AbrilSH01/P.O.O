@@ -1,5 +1,6 @@
 from tkinter import *
 from verificacion import*
+
 from tkinter import messagebox
 
 #Datos de la ventana
