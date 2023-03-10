@@ -20,12 +20,12 @@ class generador:
         cr=self.cr.get()
         if cr=="si" and lg=="":
             p = ""
-            p=p.join([choice(self.caractEsp) for i in range (int(self.longitud))])
+            p=p.join([choice(self.caractEsp) for i in range (longitud)])
             print (p)
             messagebox.showinfo("Contraseña","Su contraseña es: "+p)
         elif cr=="no" and lg=="":
             p = ""
-            p=p.join([choice(self.caracteres) for i in range (int(self.longitud))])
+            p=p.join([choice(self.caracteres) for i in range (longitud)])
             print (p)
             messagebox.showinfo("Contraseña","Su contraseña es: "+p)
         elif cr=="si" and lg==lg:
