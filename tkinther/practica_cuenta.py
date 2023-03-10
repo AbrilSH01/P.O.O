@@ -1,6 +1,5 @@
 from tkinter import *
 from tkinter import messagebox
-
 #Datos de la ventana
 ventana=Tk()
 ventana.title("CAJA POPULAR")
@@ -30,8 +29,7 @@ noc.place(x=280, y=240)
 s=Entry(seccion1)
 s.place(x=280,y=305)
 
-validacion=()
-boton=Button(seccion1,text="Entrar",fg="black",bg="white")
+boton=Button(seccion1,text="Registrar",fg="black",bg="white",)
 boton.place(x=265,y=400)
 
 
