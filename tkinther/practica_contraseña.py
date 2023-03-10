@@ -1,7 +1,5 @@
 from tkinter import *
 from verificacion import*
-import tkinther as tk
-from tkinter import tkk
 from tkinter import messagebox
 
 #Datos de la ventana
@@ -26,11 +24,9 @@ lg.place(x=280, y=110)
 cr=Entry(seccion1)
 cr.place(x=280,y=180)
 
-validacion=generador(lg,cr,caracteres,longitud)
+validacion=generador(lg,cr,caracteres,caractEsp,longitud,p)
 boton=Button(seccion1,text="Entrar",fg="black",bg="white",command= validacion.generador)
 boton.place(x=265,y=250)
-
-
 
 
 ventana.mainloop()
