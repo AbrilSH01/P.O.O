@@ -6,27 +6,37 @@ from tkinter import messagebox
 
 ventana=Tk()
 ventana.title("BIENVENIDO")
-ventana.geometry("600x400")
+ventana.geometry("600x500")
 
 seccion1=Frame(ventana,bg="#c96363")
 seccion1.pack(expand=True,fill='both')
 
 lb1=Label(seccion1,text="INGRESA TUS DATOS", bg="#c96363")
-lb1.place(x=280, y=40)
+lb1.place(x=250, y=40)
 
-nombre=Button(seccion1,text="Nombre: ",fg="black",bg="white")
-nombre.place(x=250,y=100)
+nombre=Label(seccion1,text="Nombre: ",fg="black",bg="#c96363")
+nombre.place(x=110, y=110)
+entry1=Entry(seccion1)
+entry1.place(x=280, y=110)
 
-app=Button(seccion1,text="Apellido Paterno",fg="black",bg="white")
-app.place(x=250,y=170)
+app=Label(seccion1,text="Apellido Paterno",fg="black",bg="#c96363")
+app.place(x=110, y=180)
+entry2=Entry(seccion1)
+entry2.place(x=280, y=175)
 
-apm=Button(seccion1,text="Apellido Materno",fg="black",bg="white")
-apm.place(x=250,y=240)
+apm=Label(seccion1,text="Apellido Materno",fg="black",bg="#c96363")
+apm.place(x=110, y=260)
+entry3=Entry(seccion1)
+entry3.place(x=280, y=255)
 
-año=Button(seccion1,text="Año de nacimiento",fg="black",bg="white")
-año.place(x=250,y=310)
+año=Label(seccion1,text="Año de nacimiento",fg="black",bg="#c96363")
+año.place(x=110, y=340)
+entry4=Entry(seccion1)
+entry4.place(x=280, y=335)
 
-carrera=Button(seccion1,text="Carrera",fg="black",bg="white")
-carrera.place(x=250,y=310)
+carrera=Label(seccion1,text="Carrera",fg="black",bg="#c96363")
+carrera.place(x=110, y=420)
+entry5=Entry(seccion1)
+entry5.place(x=280, y=420)
 
 ventana.mainloop()
