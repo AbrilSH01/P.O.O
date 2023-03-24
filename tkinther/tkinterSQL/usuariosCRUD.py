@@ -1,10 +1,14 @@
 from tkinter import*
 from tkinter import ttk
-import tk as tk
 import tkinter as tk
-from tkinter import messagebox
+from controladorBD import*
 
+#Instancia:puente entre los dos archivos
+controlador=controladorBD()
 
+#Metodo que usa mi obj entre los 2 archivos
+def ejecutaInsert():
+    controlador.guardarUsuario(varNom.get(),varCor.get(),varCon.get())
 ventana=Tk()
 ventana.title("CRUD de usuarios")
 ventana.geometry("600x300")
@@ -24,14 +28,14 @@ lblNom=Label(pestaña1,text="Nombre: ").pack()
 entryNom=Entry(pestaña1,textvariable=varNom).pack()
 
 varCor= tk.StringVar()
-lblCor=Label(pestaña1,text="Nombre: ").pack()
+lblCor=Label(pestaña1,text="Correo: ").pack()
 entryCor=Entry(pestaña1,textvariable=varCor).pack()
 
 varCon= tk.StringVar()
-lblCon=Label(pestaña1,text="Nombre: ").pack()
+lblCon=Label(pestaña1,text="Contraseña: ").pack()
 entryCon=Entry(pestaña1,textvariable=varCon).pack()
 
-btnGuardar=Button(pestaña1,text="Guardar usuario")
+btnGuardar=Button(pestaña1,text="Guardar usuario",command=ejecutaInsert).pack()
 
 
 panel.add(pestaña1,text="Agregar usuarios")
