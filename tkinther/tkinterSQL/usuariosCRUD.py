@@ -17,7 +17,7 @@ def ejecutarSelectU():
     rsUsu=controlador.consultarUsuario(varBus.get())
     for usu in rsUsu:
      cadena=str(usu[0])+" "+usu[1]+" "+usu[2]+" "+str(usu[3])
-    
+     resultado=cadena.get()
     if(rsUsu):
         print(cadena)
     
