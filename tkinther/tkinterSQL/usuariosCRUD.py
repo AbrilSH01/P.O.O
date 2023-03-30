@@ -15,12 +15,13 @@ def ejecutaInsert():
 def ejecutarSelectU():
     controlador.consultarUsuario(varBus.get())
     rsUsu=controlador.consultarUsuario(varBus.get())
-    for usu in rsUsu:
-     cadena=str(usu[0])+" "+usu[1]+" "+usu[2]+" "+str(usu[3])
-     resultado=cadena.get()
+    #Para borrar el usuario anterior al buscar otro
+    textBus.delete(1.0,tk.END)
     if(rsUsu):
-        print(cadena)
-    
+        for usu in rsUsu:
+         cadena=str(usu[0])+" "+usu[1]+" "+usu[2]+" "+str(usu[3])
+         #Para insertar la variable en una nueva linea de texto
+         textBus.insert(tk.END,cadena+'\n')
     else: 
         messagebox.showerror("Error","El nombre no existe en la base de datos")
     
@@ -62,13 +63,8 @@ txtid=Entry(pestaña2,textvariable=varBus).pack()
 btnBusqueda=Button(pestaña2,text="Buscar",command=ejecutarSelectU).pack()
 
 subBus=Label(pestaña2,text="Registrado: ",fg="blue",font=("Modern",15)).pack()
-textBus=tk.Text(pestaña2,height=5,width=52).pack()
-
-
-
-
-
-
+textBus=tk.Text(pestaña2,height=5,width=52)
+textBus.pack()
 
 panel.add(pestaña1,text="Agregar usuarios")
 panel.add(pestaña2,text="Buscar usuario")
