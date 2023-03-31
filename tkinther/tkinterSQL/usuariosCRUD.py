@@ -24,6 +24,15 @@ def ejecutarSelectU():
          textBus.insert(tk.END,cadena+'\n')
     else: 
         messagebox.showerror("Error","El nombre no existe en la base de datos")
+
+#Funcion que usa mi objeto entre los 2 archivos 
+def consultarUsuario():
+    textCon.delete(1.0,tk.END)
+    cnUsu=controlador.consultarUsuarios()
+    for usu in cnUsu:
+        cadena=str(usu[0])+" "+usu[1]+" "+usu[2]+" "+str(usu[3])
+        textCon.insert(tk.END,cadena+'\n')
+    
     
 ventana=Tk()
 ventana.title("CRUD de usuarios")
@@ -69,7 +78,7 @@ textBus.pack()
 
 #Pestaña 3: Consultar usuarios
 titulo3=Label(pestaña3,text="Consultar usuarios",fg="Blue",font=("Modern",18)).pack()
-btnConsultar=Button(pestaña3,text="Consultar").pack()
+btnConsultar=Button(pestaña3,text="Consultar",command=consultarUsuario).pack()
 
 subCon=Label(pestaña3,text="Usuarios: ",fg="blue",font=("Modern",15)).pack()
 textCon=tk.Text(pestaña3,height=5,width=52)

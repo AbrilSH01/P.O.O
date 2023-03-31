@@ -74,4 +74,19 @@ class controladorBD:
                 return RSusuario
             except sqlite3.OperationalError:
                 print("Error de consulta")
+                
+    def consultarUsuarios(self):
+        conx=self.conexionBD()
+        
+        cursor=conx.cursor()
+        sqlSelect="select*from tbRegistrados"
+        
+        cursor.execute(sqlSelect)
+        CUsuario=cursor.fetchall()
+        conx.close()
+        return CUsuario
+
+    
+            
+        
             
