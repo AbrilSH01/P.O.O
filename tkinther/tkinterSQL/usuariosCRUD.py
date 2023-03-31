@@ -66,6 +66,16 @@ subBus=Label(pestaña2,text="Registrado: ",fg="blue",font=("Modern",15)).pack()
 textBus=tk.Text(pestaña2,height=5,width=52)
 textBus.pack()
 
+
+#Pestaña 3: Consultar usuarios
+titulo3=Label(pestaña3,text="Consultar usuarios",fg="Blue",font=("Modern",18)).pack()
+btnConsultar=Button(pestaña3,text="Consultar").pack()
+
+subCon=Label(pestaña3,text="Usuarios: ",fg="blue",font=("Modern",15)).pack()
+textCon=tk.Text(pestaña3,height=5,width=52)
+textCon.pack()
+
+
 panel.add(pestaña1,text="Agregar usuarios")
 panel.add(pestaña2,text="Buscar usuario")
 panel.add(pestaña3,text="Consultar usuarios")
