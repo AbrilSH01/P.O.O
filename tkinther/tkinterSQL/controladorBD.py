@@ -34,7 +34,7 @@ class controladorBD:
             #Ejecutamos el insert y cerramos la conexion
             cursor.execute(sqlInsert,datos)
             conx.commit()
-            conx.close
+            conx.close()
             messagebox.showinfo("Éxito","Usuario guardado")
             
     #Convertir la contraseña a bytes
@@ -54,36 +54,36 @@ class controladorBD:
     
     def consultarUsuario(self,id):
         #1. Realizar la conexión BD
-        conx=self.conexionBD()
+        conx2=self.conexionBD()
         
         #2. Verificar que el id esté vacío
         if(id== ""):
             messagebox.showwarning("Cuidado","Escribe un identificador")
-            conx.close()
+            conx2.close()
         else:
             #3. Proceder a la cosulta
             try:
                 #4. Preparamos lo necesario
-                cursor=conx.cursor()
+                cursor2=conx2.cursor()
                 sqlSelect="select * from tbRegistrados where id= "+id
                 
                 #5. Ejecutamos y cerramos conexion
-                cursor.execute(sqlSelect)
-                RSusuario=cursor.fetchall()
-                conx.close()
+                cursor2.execute(sqlSelect)
+                RSusuario=cursor2.fetchall()
+                conx2.close()
                 return RSusuario
             except sqlite3.OperationalError:
                 print("Error de consulta")
                 
     def consultarUsuarios(self):
-        conx=self.conexionBD()
+        conx3=self.conexionBD()
         
-        cursor=conx.cursor()
-        sqlSelect="select*from tbRegistrados"
+        cursor3=conx3.cursor()
+        sqlSelect="select * from tbRegistrados"
         
-        cursor.execute(sqlSelect)
-        CUsuario=cursor.fetchall()
-        conx.close()
+        cursor3.execute(sqlSelect)
+        CUsuario=cursor3.fetchall()
+        conx3.close()
         return CUsuario
 
     

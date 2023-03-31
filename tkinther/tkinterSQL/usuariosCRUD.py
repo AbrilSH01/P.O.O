@@ -58,7 +58,7 @@ entryCor=Entry(pestaña1,textvariable=varCor).pack()
 
 varCon= tk.StringVar()
 lblCon=Label(pestaña1,text="Contraseña: ").pack()
-entryCon=Entry(pestaña1,textvariable=varCon).pack()
+entryCon=Entry(pestaña1,textvariable=varCon,show='*').pack()
 
 btnGuardar=Button(pestaña1,text="Guardar usuario",command=ejecutaInsert).pack()
 
@@ -81,7 +81,7 @@ titulo3=Label(pestaña3,text="Consultar usuarios",fg="Blue",font=("Modern",18)).
 btnConsultar=Button(pestaña3,text="Consultar",command=consultarUsuario).pack()
 
 subCon=Label(pestaña3,text="Usuarios: ",fg="blue",font=("Modern",15)).pack()
-textCon=tk.Text(pestaña3,height=5,width=52)
+textCon=tk.Text(pestaña3,height=10,width=52)
 textCon.pack()
 
 
