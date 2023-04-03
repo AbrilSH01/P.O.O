@@ -87,7 +87,47 @@ class controladorBD:
             return CUsuario
         except sqlite3.OperationalError:
                 print("Error de consulta todos.")
-    
+
+#Función para actualizar usuario
+    def actualizarUsuario(self,id,nombre,correo,contra):
+        conx4=self.conexionBD()
+        try:
+            cursor4=conx4.cursor()
+            sqlSelect="select * from tbRegistrados"
+            consulta="UPDATE usuarios SET nombre = %s, correo = %s, contra = %s WHERE id ="+id
+            valores = (nombre, correo, contra, id)
+            cursor4.execute(sqlSelect)
+            AUsuario=cursor4.fetchall()
+            messagebox.showinfo("Actualizacion exitosa","El usuario se ha actualizado correctamente")
+            conx4.close()
+            return AUsuario
+        except sqlite3.OperationalError:
+            print("Error al actualizar el usuario:")
+            
+#Función para eliminar usuario
+    def eliminarUsuario(self,id):
+        conx5=self.conexionBD()
+        try:
+            #Se le pregunta al usuario si quiere seguir con la eliminacion
+            respuesta=messagebox.askyesno("Confirmacion", "¿Estás seguro de que quieres eliminar el usuario de la BD?")
+            #Si quiere seguir con la eliminacion, se selecciona de la tabla de la BD
+            if respuesta == True:
+                cursor5=conx5.cursor()
+                sqlSelect="select * from tbRegistrados"
+                consulta="DELETE FROM tbRegistrados WHERE id ="+id
+                valores=(id)
+                cursor5.execute(sqlSelect)
+                EUsuario=cursor5.fetchall()
+                messagebox.showinfo("Eliminación exitosa", "El usuario se ha eliminado correctamente")
+                conx5.close()
+                return EUsuario
+        except sqlite3.OperationalError:
+            print("Error al actualizar el usuario:")
+        
+                
+                
+            
+        
             
         
             

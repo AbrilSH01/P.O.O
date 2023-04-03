@@ -37,7 +37,8 @@ def consultarUsuario():
 
         # Insertar la fila en la tabla
         tabla.insert("", tk.END, values=fila)
-       
+
+
        
 ventana=Tk()
 ventana.title("CRUD de usuarios")
@@ -82,9 +83,9 @@ textBus.pack()
 
 
 #Pestaña 3: Consultar usuarios
-titulo3=Label(pestaña3,text="Consultar usuarios",fg="Blue",font=("Modern",18)).pack()
+titulo3=Label(pestaña3,text="Consultar usuarios",fg="Red",font=("Modern",18)).pack()
 btnConsultar=Button(pestaña3,text="Consultar",command=consultarUsuario).pack()
-subCon=Label(pestaña3,text="Usuarios: ",fg="blue",font=("Modern",15)).pack()
+subCon=Label(pestaña3,text="Usuarios: ",fg="white",font=("Modern",12)).pack()
 
 #Creacion de la tabla
 tabla=ttk.Treeview(pestaña3,columns=("id","nombre","correo","contraseña"))
@@ -93,6 +94,15 @@ tabla.heading("nombre",text="Nombre")
 tabla.heading("correo",text="Correo")
 tabla.heading("contraseña",text="Contraseña")
 tabla.pack()
+
+#Pestaña 4: Actualizacion y eliminacion de usuarios
+titulo4=Label(pestaña4,text="Actualizar usuarios",fg="orange",font=("Modern",18)).pack()
+varAct=tk.StringVar()
+txtid=Entry(pestaña4,textvariable=varAct).pack()
+btnBuscar=Button(pestaña4,text="Buscar").pack()
+subAct=Label(pestaña4,text="Usuario a actualizar: ",fg="white",font=("Modern",12)).pack()
+
+
 
 panel.add(pestaña1,text="Agregar usuarios")
 panel.add(pestaña2,text="Buscar usuario")
