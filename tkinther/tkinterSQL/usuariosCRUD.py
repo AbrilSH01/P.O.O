@@ -27,11 +27,17 @@ def ejecutarSelectU():
 
 #Funcion que usa mi objeto entre los 2 archivos 
 def consultarUsuario():
-    textCon.delete(1.0,tk.END)
     cnUsu=controlador.consultarUsuarios()
     for usu in cnUsu:
-        cadena=str(usu[0])+" "+usu[1]+" "+usu[2]+" "+str(usu[3])
-        textCon.insert(tk.END,cadena+'\n')
+        id=[0]
+        nombre=[1]
+        correo=[2]
+        contraseña=[3]
+        cadena=f"{id} {nombre} {correo} {contraseña}"
+        controlador.guardarUsuario(nombre,correo,contraseña)
+        
+        tree.insert("","end",text=id,values=(nombre,correo,contraseña))
+
     
     
 ventana=Tk()
@@ -81,9 +87,25 @@ titulo3=Label(pestaña3,text="Consultar usuarios",fg="Blue",font=("Modern",18)).
 btnConsultar=Button(pestaña3,text="Consultar",command=consultarUsuario).pack()
 
 subCon=Label(pestaña3,text="Usuarios: ",fg="blue",font=("Modern",15)).pack()
-textCon=tk.Text(pestaña3,height=10,width=52)
-textCon.pack()
+tree=ttk.Treeview(pestaña3)
 
+#Crear el Tree view widget
+tree.pack(side="left",fill="both",expand=True)
+
+#Configurar las columnas
+tree["columns"]=("Nombre","Correo","Contraseña")
+tree.column("#0",width=50)
+tree.column("Nombre",width=100)
+tree.column("Correo",width=100)
+tree.column("Contraseña",width=100)
+
+#Configurar los encabezados de las columnas
+tree.heading("#0",width=50)
+tree.heading("Nombre",width=50)
+tree.heading("Correo",width=50)
+tree.heading("Contraseña",width=50)
+#Agregar los datos de la tabla al tree view
+consultarUsuario()
 
 panel.add(pestaña1,text="Agregar usuarios")
 panel.add(pestaña2,text="Buscar usuario")
