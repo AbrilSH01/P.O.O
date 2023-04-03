@@ -77,15 +77,16 @@ class controladorBD:
                 
     def consultarUsuarios(self):
         conx3=self.conexionBD()
+        try:
+            cursor3=conx3.cursor()
+            sqlSelect="select * from tbRegistrados"
         
-        cursor3=conx3.cursor()
-        sqlSelect="select * from tbRegistrados"
-        
-        cursor3.execute(sqlSelect)
-        CUsuario=cursor3.fetchall()
-        conx3.close()
-        return CUsuario
-
+            cursor3.execute(sqlSelect)
+            CUsuario=cursor3.fetchall()
+            conx3.close()
+            return CUsuario
+        except sqlite3.OperationalError:
+                print("Error de consulta todos.")
     
             
         

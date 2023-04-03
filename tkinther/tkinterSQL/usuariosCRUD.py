@@ -84,7 +84,6 @@ textBus.pack()
 #Pestaña 3: Consultar usuarios
 titulo3=Label(pestaña3,text="Consultar usuarios",fg="Blue",font=("Modern",18)).pack()
 btnConsultar=Button(pestaña3,text="Consultar",command=consultarUsuario).pack()
-
 subCon=Label(pestaña3,text="Usuarios: ",fg="blue",font=("Modern",15)).pack()
 
 #Creacion de la tabla
