@@ -37,9 +37,18 @@ def consultarUsuario():
 
         # Insertar la fila en la tabla
         tabla.insert("", tk.END, values=fila)
-
-
        
+
+#Función que usa mi objeto entre los dos archivos para actualizar
+def ejecutarEliminar():
+    controlador.eliminarUsuario(varID1.get())
+
+def actualizarUsuario():
+    controlador.actualizarUsuario(varID.get(),nombre.get(),correo.get(),contraseña.get())
+    
+
+
+#Inicio de ventana
 ventana=Tk()
 ventana.title("CRUD de usuarios")
 ventana.geometry("600x300")
@@ -51,6 +60,7 @@ pestaña1=ttk.Frame(panel)
 pestaña2=ttk.Frame(panel)
 pestaña3=ttk.Frame(panel)
 pestaña4=ttk.Frame(panel)
+pestaña5=ttk.Frame(panel)
 
 #Pestaña 1: Formulario de registro
 titulo=Label(pestaña1,text="Registro Usuarios",fg="blue",font=("Modern",18)).pack()
@@ -95,18 +105,42 @@ tabla.heading("correo",text="Correo")
 tabla.heading("contraseña",text="Contraseña")
 tabla.pack()
 
-#Pestaña 4: Actualizacion y eliminacion de usuarios
-titulo4=Label(pestaña4,text="Actualizar usuarios",fg="orange",font=("Modern",18)).pack()
-varAct=tk.StringVar()
-txtid=Entry(pestaña4,textvariable=varAct).pack()
-btnBuscar=Button(pestaña4,text="Buscar").pack()
-subAct=Label(pestaña4,text="Usuario a actualizar: ",fg="white",font=("Modern",12)).pack()
+#Pestaña 4: Actualización de usuarios
+titulo4=Label(pestaña4,text="Actualizar usuarios",fg="Purple",font=("Modern",18)).pack()
+subAct=Label(pestaña4,text="Ingrese los datos del usuario actualizar").pack()
+
+varID=tk.StringVar()
+lbID=Label(pestaña4,text="ID: ").pack()
+txtid=Entry(pestaña4,textvariable=varID).pack()
+
+nombre= tk.StringVar()
+lbnombre=Label(pestaña4,text="Nombre: ").pack()
+entrynombre=Entry(pestaña4,textvariable=nombre).pack()
+
+correo= tk.StringVar()
+lbcorreo=Label(pestaña4,text="Correo: ").pack()
+entrycorreo=Entry(pestaña4,textvariable=correo).pack()
+
+contraseña= tk.StringVar()
+lbcontraseña=Label(pestaña4,text="Contraseña: ").pack()
+entrycontraseña=Entry(pestaña4,textvariable=contraseña).pack()
+
+btnAct=Button(pestaña4,text="Actualizar",command=actualizarUsuario).pack()
+
+
+#Pestaña 5: Eliminacion de usuarios
+titulo4=Label(pestaña5,text="Eliminar usuarios",fg="orange",font=("Modern",18)).pack()
+subEli=Label(pestaña5,text="Ingrese el ID del usuario a eliminar").pack()
+varID1=tk.StringVar()
+txtid=Entry(pestaña5,textvariable=varID).pack()
+btnEliminar=Button(pestaña5,text="Eliminar",command=ejecutarEliminar).pack()
+
 
 
 
 panel.add(pestaña1,text="Agregar usuarios")
 panel.add(pestaña2,text="Buscar usuario")
 panel.add(pestaña3,text="Consultar usuarios")
-panel.add(pestaña4,text="Actualizar usuario")
-
+panel.add(pestaña4,text="Actualizar usuarios")
+panel.add(pestaña5,text="Eliminar usuarios")
 ventana.mainloop()
