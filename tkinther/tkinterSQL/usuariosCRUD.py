@@ -41,12 +41,11 @@ def consultarUsuario():
 
 #Función que usa mi objeto entre los dos archivos para actualizar
 def ejecutarEliminar():
-    controlador.eliminarUsuario(varID1.get())
+    controlador.eliminarUsuario(varid.get())
 
 def actualizarUsuario():
     controlador.actualizarUsuario(varID.get(),nombre.get(),correo.get(),contraseña.get())
     
-
 
 #Inicio de ventana
 ventana=Tk()
@@ -131,8 +130,8 @@ btnAct=Button(pestaña4,text="Actualizar",command=actualizarUsuario).pack()
 #Pestaña 5: Eliminacion de usuarios
 titulo4=Label(pestaña5,text="Eliminar usuarios",fg="orange",font=("Modern",18)).pack()
 subEli=Label(pestaña5,text="Ingrese el ID del usuario a eliminar").pack()
-varID1=tk.StringVar()
-txtid=Entry(pestaña5,textvariable=varID).pack()
+varid=tk.StringVar()
+txtid=Entry(pestaña5,textvariable=varid).pack()
 btnEliminar=Button(pestaña5,text="Eliminar",command=ejecutarEliminar).pack()
 
 
