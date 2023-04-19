@@ -12,13 +12,14 @@ def ejecutarEliminar():
     controlador.eliminarDatos(varEli.get())
     
 def consultarDatos():
+    controlador.consultarDatos(varCon.get())
     cnUsu=controlador.consultarDatos(varCon.get())
     #Borrar el contenido anterior
     tabla.delete(*tabla.get_children())
     
     for usu in cnUsu:
        # Crear una tupla con los valores del usuario
-        fila = (usu[0], usu[1], usu[2], usu[3])
+        fila = (usu[0], usu[1], usu[2])
 
         # Insertar la fila en la tabla
         tabla.insert("", tk.END, values=fila)
@@ -63,7 +64,7 @@ varCon=tk.StringVar()
 subCon=Label(pestaña3,text="Inserte el nombre de la aduana: ").pack()
 txtCon=Entry(pestaña3,textvariable=varCon).pack()
 btnConsultar=Button(pestaña3,text="Consultar",command=consultarDatos).pack()
-subCon=Label(pestaña3,text="Datos: ",fg="white",font=("Modern",12)).pack()
+subCon=Label(pestaña3,text="Datos: ",fg="black",font=("Modern",12)).pack()
 
 #Creacion de la tabla
 tabla=ttk.Treeview(pestaña3,columns=("id","Transporte","Aduana"))

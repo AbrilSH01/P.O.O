@@ -42,7 +42,7 @@ class controladorBDEX:
             confirmacion=messagebox.askyesno("Confirmacion", "¿Estás seguro de que quieres eliminar los datos de la BD?")
             if confirmacion ==True:
                 cursor2 = conx2.cursor()
-                cursor2.execute("DELETE FROM TBPedimentos WHERE id = ?", (id,))
+                cursor2.execute("DELETE FROM TBPedimentos WHERE IDExpo = ?", (id,))
                 conx2.commit()
                 messagebox.showinfo("Información", "Los datos se eliminaron correctamente")
                 conx2.close()
