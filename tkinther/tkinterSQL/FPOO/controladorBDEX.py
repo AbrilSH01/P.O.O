@@ -36,17 +36,35 @@ class controladorBDEX:
             
     
     def eliminarDatos(self,id):
-        conx2=self.conexionBDEX
+        conx2=self.conexionBDEX()
         
         try:
-            confirmacion=messagebox.askyesno("Confirmacion", "¿Estás seguro de que quieres eliminar el usuario de la BD?")
+            confirmacion=messagebox.askyesno("Confirmacion", "¿Estás seguro de que quieres eliminar los datos de la BD?")
             if confirmacion ==True:
-                cursor5 = conx2.cursor()
-                cursor5.execute("DELETE FROM TBPedimentos WHERE id = ?", (id,))
+                cursor2 = conx2.cursor()
+                cursor2.execute("DELETE FROM TBPedimentos WHERE id = ?", (id,))
                 conx2.commit()
-                messagebox.showinfo("Información", "El usuario se eliminó correctamente")
+                messagebox.showinfo("Información", "Los datos se eliminaron correctamente")
                 conx2.close()
             else:
                 messagebox.showinfo("Aviso", "Los datos no se han eliminado")
         except sqlite3.OperationalError:
-                print("Error de eliminacion.")          
+                print("Error de eliminacion.")  
+                
+    
+    
+    def consultarDatos(self,aduana):
+        conx3=self.conexionBDEX()
+        if(aduana== ""):
+            messagebox.showwarning("Cuidado","Escribe un nombre")
+            conx3.close()
+        else:
+            try:
+                cursor3=conx3.cursor()
+                sqlSelect="select * from tbRegistrados where Aduana= "+aduana
+                cursor3.execute(sqlSelect)
+                CDatos=cursor3.fetchall()
+                conx3.close()
+                return CDatos
+            except sqlite3.OperationalError:
+                print("Error de consulta")
